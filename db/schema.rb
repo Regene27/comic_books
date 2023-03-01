@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_074818) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_090133) do
+  create_table "borrowers", force: :cascade do |t|
+    t.string "borrower"
+    t.boolean "return"
+    t.integer "comic_books_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comic_books_id"], name: "index_borrowers_on_comic_books_id"
+  end
+
   create_table "comic_books", force: :cascade do |t|
     t.string "title"
     t.string "volume"
@@ -19,4 +28,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_074818) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "borrowers", "comic_books", column: "comic_books_id"
 end

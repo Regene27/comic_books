@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  borrower: MyString
+  return: MyString
+  comic_books: one
+
+two:
+  borrower: MyString
+  return: MyString
+  comic_books: two
