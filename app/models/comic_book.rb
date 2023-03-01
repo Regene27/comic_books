@@ -1,2 +1,6 @@
 class ComicBook < ApplicationRecord
-end
+    validates :title, presence: true
+    validates :volume, presence: true
+    validates :publisher, presence: true
+  end
+  

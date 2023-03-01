@@ -1,0 +1,12 @@
+<h1><%= @comic_books.title %></h1>
+
+<p><%= @comic_books.volume %></p>
+<p><%= @comic_books.publisher %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_comic_book_path(@comic_books) %></li>
+  <li><%= link_to "Destroy", comic_book_path(@comic_books), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>

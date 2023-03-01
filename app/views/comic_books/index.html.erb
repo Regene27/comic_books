@@ -1,9 +1,11 @@
 <h1>ComicBooks</h1>
 
 <ul>
-    <% @comic_books.each do |comic_books| %>
-        <li>
-        <%= comic_books.title %>
-        </li>
-    <% end %>
+  <% @comic_books.each do |comic_books| %>
+    <li>
+      <%= link_to comic_books.title, comic_books %>
+    </li>
+  <% end %>
 </ul>
+
+<%= link_to "Create", new_comic_book_path(@comic_books) %>
