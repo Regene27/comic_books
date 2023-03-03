@@ -1,8 +1,8 @@
-<%= form_with model: @comic_books do |form| %>
+<%= form_with model: comic_book do |form| %>
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
-    <% @comic_books.errors.full_messages_for(:title).each do |message| %>
+    <% comic_book.errors.full_messages_for(:title).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -10,7 +10,7 @@
   <div>
     <%= form.label :volume %><br>
     <%= form.text_area :volume %><br>
-    <% @comic_books.errors.full_messages_for(:volume).each do |message| %>
+    <% comic_book.errors.full_messages_for(:volume).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>
@@ -18,7 +18,7 @@
   <div>
     <%= form.label :publisher %><br>
     <%= form.text_area :publisher %><br>
-    <% @comic_books.errors.full_messages_for(:publisher).each do |message| %>
+    <% comic_book.errors.full_messages_for(:publisher).each do |message| %>
       <div><%= message %></div>
     <% end %>
   </div>

@@ -1,8 +1,25 @@
 class BorrowersController < ApplicationController
+
+    def new
+      @comic_book = ComicBook.find(params[:comic_book_id])
+      @borrower = Borrower.new
+    end
+
     def create
-      @comic_books = ComicBook.find(params[:comic_books_id])
-      @borrower = @comic_books.borrowers.create(borrower_params)
-      redirect_to comic_books_path(@comic_books)
+      @comic_book = ComicBook.find(params[:comic_book_id])
+      @borrower_params = params[:borrower]
+      @borrower = Borrower.new(borrower: borrower_params[:borrower], body: borrower_params[:body])
+  
+      if @borrower.save
+        redirect_to @borrower
+      else
+        render :new, status: :unprocessable_entity
+      end
+    end
+
+    def show
+      @comic_book = ComicBook.find(params[:comic_book_id])
+      @borrowers = Borrower.find(params[:id])
     end
   
     private

@@ -1,40 +1,30 @@
-<h1><%= @comic_books.title %></h1>
+<h1><%= @comic_book.title %></h1>
 
-<p><%= @comic_books.volume %></p>
-<p><%= @comic_books.publisher %></p>
+<p><%= @comic_book.volume %></p>
+<p><%= @comic_book.publisher %></p>
 
 <ul>
-  <li><%= link_to "Edit", edit_comic_book_path(@comic_books) %></li>
-  <li><%= link_to "Destroy", comic_book_path(@comic_books), data: {
+  <li><%= link_to "Edit", edit_comic_book_path(@comic_book) %></li>
+  <li><%= link_to "Destroy", comic_book_path(@comic_book), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
 
 <h2>Borrower</h2>
-<% @comic_books.borrowers do |borrower| %>
+<% @comic_book.borrowers.each do |borrower| %>
   <p>
-    <strong>Borrower:</strong>
+    <strong>borrower:</strong>
     <%= borrower.borrower %>
   </p>
 
   <p>
-    <strong>Borrower:</strong>
+    <strong>borrower:</strong>
     <%= borrower.body %>
   </p>
 <% end %>
 
-h2>Add a borrower:</h2>
-<%= form_with model: [ @comic_books, @comic_books.borrower.build ] do |form| %>
-  <p>
-    <%= form.label :borrower %><br>
-    <%= form.text_field :borrower %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<ul>
+  <li><%= link_to "New", new_comic_book_borrower_path(@comic_book) %></li>
+</ul>
+

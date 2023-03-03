@@ -1,0 +1,20 @@
+<h1>Edit ComicBook</h1>
+
+<%= form_with model: @comic_book do |form| %>
+
+    <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :volume %><br>
+    <%= form.text_area :volume %>
+  </p>
+  <p>
+    <%= form.label :publisher %><br>
+    <%= form.text_area :publisher %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

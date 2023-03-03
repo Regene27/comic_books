@@ -5,4 +5,3 @@ class ComicBook < ApplicationRecord
     validates :volume, presence: true
     validates :publisher, presence: true
   end
-  

@@ -4,47 +4,48 @@ class ComicBooksController < ApplicationController
   end
 
   def show
-    @comic_books = ComicBook.find(params[:id])
+    @comic_book = ComicBook.find(params[:id])
   end
 
   def new
-    @comic_books = ComicBook.new
+    @comic_book = ComicBook.new
   end
 
   def create
     comic_book_params = params[:comic_book]
-    comic_books = ComicBook.new(title: comic_book_params[:title], volume: comic_book_params[:volume], publisher: comic_book_params[:publisher])
+    comic_book = ComicBook.new(title: comic_book_params[:title], volume: comic_book_params[:volume], publisher: comic_book_params[:publisher])
 
-    if comic_books.save
-      redirect_to comic_books
+    if comic_book.save
+      redirect_to comic_book
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def edit
-    @comic_books = ComicBook.find(params[:id])
+    @comic_book = ComicBook.find(params[:id])
+    render :edit
   end
 
   def update
-    @comic_books = ComicBook.find(params[:id])
+    @comic_book = ComicBook.find(params[:id])
 
-    if @comic_books.update(comic_books_params)
-      redirect_to @comic_books
+    if @comic_book.update(comic_book_params)
+      redirect_to @comic_book
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    @comic_books = ComicBook.find(params[:id])
-    @comic_books.destroy
+    @comic_book = ComicBook.find(params[:id])
+    @comic_book.destroy
 
     redirect_to root_path, status: :see_other
   end
 
   private
-    def comic_books_params
-      params.require(:comic_books).permit(:title, :volume, :publisher)
+    def comic_book_params
+      params.require(:comic_book).permit(:title, :volume, :publisher)
     end
 end

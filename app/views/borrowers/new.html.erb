@@ -1,0 +1,14 @@
+<h2>Add a borrower:</h2>
+<%= form_with model: @comic_book do |form| %>
+  <p>
+    <%= form.label :borrower %><br>
+    <%= form.text_field :borrower %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -13,11 +13,11 @@
 ActiveRecord::Schema[7.0].define(version: 2023_03_01_090133) do
   create_table "borrowers", force: :cascade do |t|
     t.string "borrower"
-    t.boolean "return"
-    t.integer "comic_books_id", null: false
+    t.string "body"
+    t.integer "comic_book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["comic_books_id"], name: "index_borrowers_on_comic_books_id"
+    t.index ["comic_book_id"], name: "index_borrowers_on_comic_book_id"
   end
 
   create_table "comic_books", force: :cascade do |t|
@@ -28,5 +28,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_090133) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "borrowers", "comic_books", column: "comic_books_id"
+  add_foreign_key "borrowers", "comic_books"
 end
