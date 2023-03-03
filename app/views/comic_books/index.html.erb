@@ -1,11 +1,22 @@
-<h1>ComicBooks</h1>
-
+<table class="table-auto border-separate border-spacing-4 border border-slate-400">
+<thead>
+<tr><th>ComicBooks</th></tr>
+</thead>
+<tbody>
 <ul>
   <% @comic_books.each do |comic_books| %>
     <li>
-      <%= link_to comic_books.title, comic_books %>
+    <tr>
+    <td class="border border-slate-300">
+      <%= link_to comic_books.title, comic_books %></td>
+    </tr>
     </li>
   <% end %>
 </ul>
-
+</tbody>
+</table>
+<button class="bg-sky-500 hover:bg-sky-700 ...">
 <%= link_to "Create", new_comic_book_path(@comic_books) %>
+</button>
+
+

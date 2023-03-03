@@ -1,30 +1,56 @@
-<h1><%= @comic_book.title %></h1>
-
-<p><%= @comic_book.volume %></p>
-<p><%= @comic_book.publisher %></p>
-
+<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+  <div class="flex items-center flex-shrink-0 text-white mr-6">
+    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" </svg>
+    <span class="font-semibold text-xl tracking-tight">Comic Book Details</span>
+  </div>
+</nav>
+<div>
+<table class="table-auto border-separate border-spacing-2 border border-slate-400">
+  <thead>
+    <tr>
+      <th>Comic Book</th>
+      <th>Volume</th>
+      <th>Publisher</th>
+  </thead>
+  <tbody>
+  <tr>
+  <td><%= @comic_book.title %></td>
+  <td><%= @comic_book.volume %></td>
+  <td><%= @comic_book.publisher %></td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<div>
 <ul>
-  <li><%= link_to "Edit", edit_comic_book_path(@comic_book) %></li>
-  <li><%= link_to "Destroy", comic_book_path(@comic_book), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+<button class="bg-sky-500 hover:bg-sky-700 ...">
+<li><%= link_to "Back", comic_books_path(@comic_book) %></li>
+</button>
+<button class="bg-sky-500 hover:bg-sky-700 ...">
+<li><%= link_to "Edit", edit_comic_book_path(@comic_book) %></li>
+</button>
+<button class="bg-sky-500 hover:bg-sky-700 ...">
+<li><%= link_to "Destroy", comic_book_path(@comic_book), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %></li>
+</button>       
+      </ul>
 
-<h2>Borrower</h2>
-<% @comic_book.borrowers.each do |borrower| %>
-  <p>
-    <strong>borrower:</strong>
-    <%= borrower.borrower %>
-  </p>
+      <h2>Borrower</h2>
+      <% @comic_book.borrowers.each do |borrower| %>
+        <p>
+          <strong>borrower:</strong>
+          <%= borrower.borrower %>
+        </p>
 
-  <p>
-    <strong>borrower:</strong>
-    <%= borrower.body %>
-  </p>
-<% end %>
+        <p>
+          <strong>borrower:</strong>
+          <%= borrower.body %>
+        </p>
+      <% end %>
 
-<ul>
-  <li><%= link_to "New", new_comic_book_borrower_path(@comic_book) %></li>
-</ul>
-
+      <ul>
+        <li><%= link_to "New", new_comic_book_borrower_path(@comic_book) %></li>
+      </ul>
+</div>

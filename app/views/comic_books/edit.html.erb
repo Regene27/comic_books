@@ -1,20 +1,31 @@
-<h1>Edit ComicBook</h1>
+<div class="w-full max-w-xs">
+<h1 class="text-blue-600">Edit ComicBook</h1>
 
 <%= form_with model: @comic_book do |form| %>
-
-    <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <p>
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+  <%= form.label :title %><br>
+  <%= form.text_field :title %>
+      </label>
   </p>
   <p>
-    <%= form.label :volume %><br>
-    <%= form.text_area :volume %>
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+  <%= form.label :volume %><br>
+  <%= form.text_field :volume %>
+      </label>
   </p>
   <p>
-    <%= form.label :publisher %><br>
-    <%= form.text_area :publisher %>
+  <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+  <%= form.label :publisher %><br>
+  <%= form.text_field :publisher %>
+      </label>
   </p>
   <p>
-    <%= form.submit %>
+  <button class="bg-sky-500 hover:bg-sky-700 ...">
+  Save changes
+  </button>
   </p>
 <% end %>
+</form>
+</div>
